@@ -1,0 +1,50 @@
+backbone:
+- - -1
+  - ConvBlock_1
+  - - 3
+    - 32
+    - 3
+    - 0
+    - 1
+- - -1
+  - Cell_1
+  - - 1
+    - 2
+    - 32
+- - -1
+  - ConvBlock_2
+  - - 32
+    - 128
+    - 3
+    - 0
+    - 2
+- - -1
+  - Cell_2
+  - - 2
+    - 3
+    - 128
+- - -1
+  - AvgPool
+  - - 2
+    - 0
+    - 2
+- - -1
+  - Flatten
+  - []
+- - -1
+  - Linear
+  - - 6272
+    - 10
+    - 0.25
+batch_size: 32
+channels: 3
+decay: 0.0005
+img_H: 32
+img_W: 32
+lr: 0.001
+momentum: 0.9
+nbr_cells: 2
+nbr_choice_blocks:
+- 2
+- 3
+nc: 10

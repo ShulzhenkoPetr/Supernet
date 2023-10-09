@@ -1,0 +1,33 @@
+# General
+
+nbr_cells: 2
+nbr_choice_blocks: 3
+
+nc: 10
+img_W: 32
+img_H: 32
+channels: 3
+lr: 1e-3
+momentum: 0.9
+decay: 0.0005
+batch_size: 32
+#ghost_batch
+
+
+# Supernet architecture
+
+#      [ from, block_name, params:
+#                                Conv - [in_ch, out_ch, kernel_sz, padding, stride]
+#                                Cell - [cell_nbr, nb_choice_blocks, in_ch]
+#                                AvgPool - [kernel_sz, padding, stride]
+#                                Linear - [in, out, dropout_rate] ]
+
+backbone: [
+      [-1, ConvBlock_1, [3, 32, 3, 0, 1]],
+      [-1, Cell_1, [1, 3, 32]],
+      [-1, ConvBlock_2, [32, 128, 3, 0, 2]],
+      [-1, Cell_2, [2, 3, 128]],
+      [-1, AvgPool, [2, 0, 2]],
+      [-1, Flatten, []],
+      [-1, Linear, [6272, 10, 0.25]]
+    ]

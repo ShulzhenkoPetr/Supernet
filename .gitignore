@@ -1,1 +1,8 @@
 **/.DS_Store
+build/
+dist/
+.pytest_cache/
+venv/
+wandb/
+checkpoints/
+src/datasets/cifar-10-python.tar
